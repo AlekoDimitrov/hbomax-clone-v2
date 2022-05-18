@@ -1,0 +1,23 @@
+.defaultStyle {
+  color: white;
+
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.button1 {
+  background: linear-gradient(140deg, #ff83e2, #fd04c4);
+}
+.button2 {
+  background: linear-gradient(140deg, #e833bc, #8209f5);
+}
+.button3 {
+  background: linear-gradient(140deg, #ae68fa, #6d0ae9);
+}
+.button4 {
+  background: linear-gradient(140deg, #8e01ff, #4a8cfe);
+}
+.button5 {
+  background: linear-gradient(140deg, #6899fe, #1a0dff);
+}
