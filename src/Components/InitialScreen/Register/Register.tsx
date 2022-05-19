@@ -70,7 +70,7 @@ const Register = () => {
           </Flex>
         </Flex>
         <Flex w={"25%"} justify={"space-around"} mb={"30px"}>
-          <Link to={"/"}>
+          <Link to={"/who-is-watching"}>
             <NavigationButtons
               content={"SAVE"}
               onClick={() => {

@@ -13,10 +13,21 @@ const theme = extendTheme({
 });
 
 function App() {
-  const [users, setUsers]: any = useState([]);
-  const [background, setBackground] = useState(
-    {background: "linear-gradient(90deg, #5b135e 0%, #251e6f 100%) border-box", avatarBackground: "linear-gradient(140deg, #ff83e2, #fd04c4) border-box"}
-  );
+  const [users, setUsers]: any = useState([
+    {
+      name: "Guest",
+      userTheme: {
+        avatarBackground:
+          "linear-gradient(140deg, #ff83e2, #fd04c4) border-box",
+        background:
+          "linear-gradient(90deg, #5b135e 0%, #251e6f 100%) border-box",
+      },
+    },
+  ]);
+  const [background, setBackground] = useState({
+    background: "linear-gradient(90deg, #5b135e 0%, #251e6f 100%) border-box",
+    avatarBackground: "linear-gradient(140deg, #ff83e2, #fd04c4) border-box",
+  });
 
   return (
     <React.StrictMode>

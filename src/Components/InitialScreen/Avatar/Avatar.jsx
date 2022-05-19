@@ -18,14 +18,10 @@ const Avatar = (props) => {
   }
   const { background } = useContext(BackgroundContext);
 
-
   return (
     <motion.div variants={variants} whileHover="whileHover">
       <Flex cursor={"pointer"} position={"relative"} width={"fit-content"}>
-        <Box
-          className="circleBorder"
-          background={background.avatarBackground}
-        />
+        <Box className="circleBorder" background={props.background} />
         <Text
           fontSize={"6xl"}
           color="#ffff"

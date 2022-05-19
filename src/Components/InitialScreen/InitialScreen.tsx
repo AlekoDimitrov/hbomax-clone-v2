@@ -1,5 +1,6 @@
 import "./InitialScreen.css";
 import Register from "./Register/Register";
+import WhosWatching from "./WhosWatching/WhosWatching";
 import { Flex, Box, background } from "@chakra-ui/react";
 import { ReactComponent as HBOSvgLogo } from "../../assets/hbomax-logo.svg";
 import { Routes, Route } from "react-router-dom";
@@ -21,6 +22,7 @@ const InitialScreen = () => {
         <Flex zIndex={1} flexDir={"column"} alignItems={"center"} w={"100%"}>
           <Routes>
             <Route path="/" element={<Register />} />
+            <Route path="/who-is-watching" element={<WhosWatching />} />
           </Routes>
         </Flex>
       </Flex>
