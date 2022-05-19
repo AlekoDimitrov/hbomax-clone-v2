@@ -1,0 +1,5 @@
+.backdropFilter {
+  background: rgba(82, 82, 82, 0.507);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-radius: 25px;
+}
