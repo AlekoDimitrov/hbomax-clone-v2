@@ -7,17 +7,17 @@
 }
 
 .button1 {
-  background: linear-gradient(140deg, #ff83e2, #fd04c4);
+  background: linear-gradient(140deg, #ff83e2, #fd04c4) border-box;
 }
 .button2 {
-  background: linear-gradient(140deg, #e833bc, #8209f5);
+  background: linear-gradient(140deg, #e833bc, #8209f5) border-box;
 }
 .button3 {
-  background: linear-gradient(140deg, #ae68fa, #6d0ae9);
+  background: linear-gradient(140deg, #ae68fa, #6d0ae9) border-box;
 }
 .button4 {
-  background: linear-gradient(140deg, #8e01ff, #4a8cfe);
+  background: linear-gradient(140deg, #8e01ff, #4a8cfe) border-box;
 }
 .button5 {
-  background: linear-gradient(140deg, #6899fe, #1a0dff);
+  background: linear-gradient(140deg, #6899fe, #1a0dff) border-box;
 }

@@ -1,7 +1,8 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useContext } from "react";
 import "./Avatar.css";
 import { motion } from "framer-motion";
+import { BackgroundContext } from "../../../Helper/Context";
 
 const Avatar = (props) => {
   let variants = "";
@@ -15,13 +16,15 @@ const Avatar = (props) => {
       },
     };
   }
+  const { background } = useContext(BackgroundContext);
+
 
   return (
     <motion.div variants={variants} whileHover="whileHover">
       <Flex cursor={"pointer"} position={"relative"} width={"fit-content"}>
         <Box
           className="circleBorder"
-          background="linear-gradient(140deg, #ff83e2, #fd04c4) border-box"
+          background={background.avatarBackground}
         />
         <Text
           fontSize={"6xl"}

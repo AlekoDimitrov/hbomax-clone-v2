@@ -1,21 +1,24 @@
 import "./Register.css";
 import { Box, Button, Flex, HStack, Input, Text } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link, Link as RouterLink } from "react-router-dom";
 import Avatar from "../Avatar/Avatar";
 import { AiOutlineCamera } from "react-icons/ai";
 import ColorButtons from "../ColorButtons/ColorButtons";
 import { BsPerson } from "react-icons/bs";
 import NavigationButtons from "../NavigationButtons/NavigationButtons";
-import { UsersContext } from "../../../Helper/Context";
+import { BackgroundContext, UsersContext } from "../../../Helper/Context";
 import { useContext } from "react";
 
 const Register = () => {
   const { users, setUsers }: any = useContext(UsersContext);
+  const { background } = useContext(BackgroundContext);
+
   return (
     <>
       {console.log(users)}
+      {console.log(users.length)}
       <Flex
-        mt={"50px"}
+        mt={"60px"}
         flexDir={"column"}
         w={"100%"}
         h={"100%"}
@@ -58,17 +61,33 @@ const Register = () => {
               defaultValue={"Guest"}
               color={"#ffff"}
               fontSize={"2xl"}
+              id={"inputName"}
             />
+
             <Flex w={"100%"} justify={"space-between"}>
               <ColorButtons />
             </Flex>
           </Flex>
         </Flex>
         <Flex w={"25%"} justify={"space-around"} mb={"30px"}>
-          <NavigationButtons
-            content={"SAVE"}
-            onClick={() => setUsers([{ user: "Aleko", theme: "blue" }])}
-          />
+          <Link to={"/"}>
+            <NavigationButtons
+              content={"SAVE"}
+              onClick={() => {
+                if (users.length < 5) {
+                  setUsers([
+                    ...users,
+                    {
+                      name: (
+                        document.getElementById("inputName") as HTMLInputElement
+                      ).value,
+                      userTheme: background,
+                    },
+                  ]);
+                }
+              }}
+            />
+          </Link>
         </Flex>
       </Flex>
     </>

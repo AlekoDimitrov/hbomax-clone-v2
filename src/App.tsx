@@ -4,7 +4,7 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import React, { useState } from "react";
 import InitialScreen from "./Components/InitialScreen/InitialScreen";
 import "@fontsource/urbanist";
-import { UsersContext } from "./Helper/Context";
+import { BackgroundContext, UsersContext } from "./Helper/Context";
 
 const theme = extendTheme({
   fonts: {
@@ -14,15 +14,18 @@ const theme = extendTheme({
 
 function App() {
   const [users, setUsers]: any = useState([]);
+  const [background, setBackground] = useState(
+    {background: "linear-gradient(90deg, #5b135e 0%, #251e6f 100%) border-box", avatarBackground: "linear-gradient(140deg, #ff83e2, #fd04c4) border-box"}
+  );
 
   return (
     <React.StrictMode>
       <ChakraProvider theme={theme}>
         <Router>
           <UsersContext.Provider value={{ users, setUsers }}>
-            <Routes>
-              <Route path="/" element={<InitialScreen />} />
-            </Routes>
+            <BackgroundContext.Provider value={{ background, setBackground }}>
+              <InitialScreen />
+            </BackgroundContext.Provider>
           </UsersContext.Provider>
         </Router>
       </ChakraProvider>
