@@ -13,40 +13,46 @@ const RegisterKid = () => {
   const { background } = useContext(BackgroundContext);
   const [buttonToggle, setButtonToggle] = useState(true);
   return (
-    <Center h={"80%"} zIndex={1} mt={"60px"}>
-      <Flex h={"100%"} flexDir={"column"} justify="space-between">
-        <Flex
-          height={"fit-content"}
-          flexDir={"column"}
-          align="center"
-          justify={"space-between"}
-        >
-          <Text fontWeight={"light"} fontSize={"5xl"} color={"#ffff"}>
-            Create Profile
-          </Text>
-        </Flex>
-        <Flex width={"640px"} justify={"space-between"} align="center">
-          <Flex flexDir={"column"} w="200px" align={"center"}>
+    <>
+      <Flex
+        mt={"60px"}
+        flexDir={"column"}
+        w={"100%"}
+        h={"100%"}
+        minH={"600px"}
+        alignItems={"center"}
+        justify={"space-between"}
+      >
+        <Text fontSize={"5xl"} color={"#ffff"}>
+          Register Adult
+        </Text>
+
+        <Flex w={"35%"} justify={"space-between"}>
+          <Flex flexDir={"column"} align={"center"}>
             <Avatar icon={<MdChildCare />} />
-            <Box
-              color={"#ffff"}
-              align="center"
+            <Flex
               mt={"10px"}
-              fontSize="lg"
-              p={"15px"}
+              w={"210px"}
+              flexDir={"column"}
+              alignItems={"center"}
+              textAlign={"center"}
               className="backdropFilter"
+              p={"15px"}
+              color={"#ffff"}
             >
-              <Box fontSize={"3xl"}>
-                <AiOutlineCamera />
-              </Box>
-              <Text mt={"5px"}>
+              <AiOutlineCamera fontSize={"30px"} />
+              <Text fontSize={"1.15em"} mt={"8px"}>
                 Use our mobile app to upload a photo or choose a character
               </Text>
-            </Box>
+            </Flex>
           </Flex>
-          <Flex h="100%" flexDir={"column"} justify="space-around" w={"60%"}>
+          <Flex
+            w={"55%"}
+            flexDir={"column"}
+            justify={"space-around"}
+            align={"center"}
+          >
             <Input
-              width={"100%"}
               variant={"flushed"}
               placeholder={"Name"}
               color={"#ffff"}
@@ -79,41 +85,37 @@ const RegisterKid = () => {
                 ></Input>
               </Flex>
             </Box>
-            <HStack w={"100%"} justify="space-between" zIndex={1}>
+            <Flex w={"100%"} justify={"space-between"}>
               <ColorButtons />
-            </HStack>
+            </Flex>
           </Flex>
         </Flex>
-        <Flex flexDir={"column"} align="center">
-          <HStack spacing="40px">
-            <RouterLink to={"/who-is-watching"}>
-              <NavigationButtons
-                content={"SAVE"}
-                disabled={buttonToggle}
-                onClick={() => {
-                  if (users.length < 5) {
-                    setUsers([
-                      ...users,
-                      {
-                        name: (
-                          document.getElementById(
-                            "inputName"
-                          ) as HTMLInputElement
-                        ).value,
-                        userTheme: background,
-                      },
-                    ]);
-                  }
-                }}
-              />
-            </RouterLink>
-            <RouterLink to={"/who-is-watching"}>
-              <NavigationButtons content="CANCEL" />
-            </RouterLink>
-          </HStack>
+        <Flex w={"25%"} justify={"space-around"} mb={"30px"}>
+          <RouterLink to={"/who-is-watching"}>
+            <NavigationButtons
+              content={"SAVE"}
+              disabled={buttonToggle}
+              onClick={() => {
+                if (users.length < 5) {
+                  setUsers([
+                    ...users,
+                    {
+                      name: (
+                        document.getElementById("inputName") as HTMLInputElement
+                      ).value,
+                      userTheme: background,
+                    },
+                  ]);
+                }
+              }}
+            />
+          </RouterLink>
+          <RouterLink to={"/who-is-watching"}>
+            <NavigationButtons content="CANCEL" />
+          </RouterLink>
         </Flex>
       </Flex>
-    </Center>
+    </>
   );
 };
 

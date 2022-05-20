@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Button, Flex, HStack, Input, Text } from "@chakra-ui/react";
-import { Link, Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import Avatar from "../Avatar/Avatar";
 import { AiOutlineCamera } from "react-icons/ai";
 import ColorButtons from "../ColorButtons/ColorButtons";
@@ -75,7 +75,7 @@ const RegisterAdult = () => {
           </Flex>
         </Flex>
         <Flex w={"25%"} justify={"space-around"} mb={"30px"}>
-          <Link to={"/who-is-watching"}>
+          <RouterLink to={"/who-is-watching"}>
             <NavigationButtons
               content={"SAVE"}
               disabled={buttonToggle}
@@ -93,7 +93,10 @@ const RegisterAdult = () => {
                 }
               }}
             />
-          </Link>
+          </RouterLink>
+          <RouterLink to={"/who-is-watching"}>
+            <NavigationButtons content="CANCEL" />
+          </RouterLink>
         </Flex>
       </Flex>
     </>
