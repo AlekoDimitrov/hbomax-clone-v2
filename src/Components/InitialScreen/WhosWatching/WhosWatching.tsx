@@ -47,15 +47,17 @@ const WhosWatching = () => {
           </RouterLink>
         </HStack>
         <Box textAlign={"center"}>
-          <Text
-            mt={"40px"}
-            fontSize={"1.1em"}
-            letterSpacing={"1px"}
-            fontWeight={"bold"}
-            color={"#9e88ff"}
-          >
-            MANAGE PROFILES
-          </Text>
+          <RouterLink to={"/manage-profiles"}>
+            <Text
+              mt={"40px"}
+              fontSize={"1.1em"}
+              letterSpacing={"1px"}
+              fontWeight={"bold"}
+              color={"#9e88ff"}
+            >
+              MANAGE PROFILES
+            </Text>
+          </RouterLink>
         </Box>
       </Box>
     </Flex>

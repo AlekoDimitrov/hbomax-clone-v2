@@ -8,9 +8,11 @@ import { useContext } from "react";
 import { BackgroundContext } from "../../Helper/Context";
 import RegisterAdult from "./RegisterAdult/RegisterAdult";
 import RegisterKid from "./RegisterKid/RegisterKid";
+import ManageProfiles from "./ManageProfiles/ManageProfiles";
+import EditProfile from "./EditProfile/EditProfile";
 
 const InitialScreen = () => {
-  const { background } = useContext(BackgroundContext);
+  const { background }: any = useContext(BackgroundContext);
   return (
     <>
       <div className="circleShadow" />
@@ -27,6 +29,11 @@ const InitialScreen = () => {
             <Route path="/who-is-watching" element={<WhosWatching />} />
             <Route path="/register-adult" element={<RegisterAdult />} />
             <Route path="/register-kid" element={<RegisterKid />} />
+            <Route path="/manage-profiles" element={<ManageProfiles />}></Route>
+            <Route
+              path="/manage-profiles/edit-profile"
+              element={<EditProfile />}
+            />
           </Routes>
         </Flex>
       </Flex>

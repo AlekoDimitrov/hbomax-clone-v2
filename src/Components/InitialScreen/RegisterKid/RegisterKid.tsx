@@ -24,10 +24,10 @@ const RegisterKid = () => {
         justify={"space-between"}
       >
         <Text fontSize={"5xl"} color={"#ffff"}>
-          Register Adult
+          Register Kid
         </Text>
 
-        <Flex w={"35%"} justify={"space-between"}>
+        <Flex w={"38%"} justify={"space-between"}>
           <Flex flexDir={"column"} align={"center"}>
             <Avatar icon={<MdChildCare />} />
             <Flex
@@ -46,12 +46,7 @@ const RegisterKid = () => {
               </Text>
             </Flex>
           </Flex>
-          <Flex
-            w={"55%"}
-            flexDir={"column"}
-            justify={"space-around"}
-            align={"center"}
-          >
+          <Flex w={"55%"} flexDir={"column"} justify={"space-around"}>
             <Input
               variant={"flushed"}
               placeholder={"Name"}
@@ -71,18 +66,26 @@ const RegisterKid = () => {
                 Birth Date (MM/YYYYY)
               </Text>
               <Flex>
-                <Input
-                  color={"#ffff"}
-                  variant={"flushed"}
-                  placeholder={"Month"}
-                  maxLength={2}
-                ></Input>
-                <Input
-                  color={"#ffff"}
-                  variant={"flushed"}
-                  placeholder={"Year"}
-                  maxLength={4}
-                ></Input>
+                <Box>
+                  <Flex>
+                    <Input
+                      color={"#ffff"}
+                      variant={"flushed"}
+                      placeholder={"Month"}
+                      maxLength={2}
+                    />
+                    <Input
+                      color={"#ffff"}
+                      variant={"flushed"}
+                      placeholder={"Year"}
+                      maxLength={4}
+                    />
+                  </Flex>
+                  <Text fontSize={"sm"} color={"#718096"} mt={"8px"}>
+                    We use age to customize content and features for this
+                    profile
+                  </Text>
+                </Box>
               </Flex>
             </Box>
             <Flex w={"100%"} justify={"space-between"}>
