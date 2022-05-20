@@ -6,6 +6,8 @@ import { ReactComponent as HBOSvgLogo } from "../../assets/hbomax-logo.svg";
 import { Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import { BackgroundContext } from "../../Helper/Context";
+import RegisterAdult from "./RegisterAdult/RegisterAdult";
+import RegisterKid from "./RegisterKid/RegisterKid";
 
 const InitialScreen = () => {
   const { background } = useContext(BackgroundContext);
@@ -23,6 +25,8 @@ const InitialScreen = () => {
           <Routes>
             <Route path="/" element={<Register />} />
             <Route path="/who-is-watching" element={<WhosWatching />} />
+            <Route path="/register-adult" element={<RegisterAdult />} />
+            <Route path="/register-kid" element={<RegisterKid />} />
           </Routes>
         </Flex>
       </Flex>

@@ -1,4 +1,4 @@
-import "./Register.css";
+import React, { useState } from "react";
 import { Box, Button, Flex, HStack, Input, Text } from "@chakra-ui/react";
 import { Link, Link as RouterLink } from "react-router-dom";
 import Avatar from "../Avatar/Avatar";
@@ -7,17 +7,15 @@ import ColorButtons from "../ColorButtons/ColorButtons";
 import { BsPerson } from "react-icons/bs";
 import NavigationButtons from "../NavigationButtons/NavigationButtons";
 import { BackgroundContext, UsersContext } from "../../../Helper/Context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
-const Register = () => {
+const RegisterAdult = () => {
   const { users, setUsers }: any = useContext(UsersContext);
   const { background } = useContext(BackgroundContext);
   const [buttonToggle, setButtonToggle] = useState(true);
 
   return (
     <>
-      {console.log(users)}
-      {console.log(users.length)}
       <Flex
         mt={"60px"}
         flexDir={"column"}
@@ -28,7 +26,7 @@ const Register = () => {
         justify={"space-between"}
       >
         <Text fontSize={"5xl"} color={"#ffff"}>
-          Your First User
+          Register Adult
         </Text>
 
         <Flex w={"35%"} justify={"space-between"}>
@@ -61,8 +59,8 @@ const Register = () => {
               placeholder={"Name"}
               color={"#ffff"}
               fontSize={"2xl"}
-              id={"inputName"}
               maxLength={20}
+              id={"inputName"}
               onChange={() =>
                 (document.getElementById("inputName") as HTMLInputElement).value
                   .length < 1
@@ -82,14 +80,17 @@ const Register = () => {
               content={"SAVE"}
               disabled={buttonToggle}
               onClick={() => {
-                setUsers([
-                  {
-                    name: (
-                      document.getElementById("inputName") as HTMLInputElement
-                    ).value,
-                    userTheme: background,
-                  },
-                ]);
+                if (users.length < 5) {
+                  setUsers([
+                    ...users,
+                    {
+                      name: (
+                        document.getElementById("inputName") as HTMLInputElement
+                      ).value,
+                      userTheme: background,
+                    },
+                  ]);
+                }
               }}
             />
           </Link>
@@ -99,4 +100,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterAdult;

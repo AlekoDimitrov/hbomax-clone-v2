@@ -21,7 +21,12 @@ const Avatar = (props) => {
   return (
     <motion.div variants={variants} whileHover="whileHover">
       <Flex cursor={"pointer"} position={"relative"} width={"fit-content"}>
-        <Box className="circleBorder" background={props.background} />
+        <Box
+          className="circleBorder"
+          background={
+            props.background ? props.background : background.avatarBackground
+          }
+        />
         <Text
           fontSize={"6xl"}
           color="#ffff"

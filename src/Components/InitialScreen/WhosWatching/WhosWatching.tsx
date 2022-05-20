@@ -1,18 +1,26 @@
+import "./WhosWatching.css";
 import { Box, Flex, HStack, Text } from "@chakra-ui/react";
 import React, { useContext } from "react";
+import { AiOutlinePlus } from "react-icons/ai";
 import { UsersContext } from "../../../Helper/Context";
 import Avatar from "../Avatar/Avatar";
 import NavigationButtons from "../NavigationButtons/NavigationButtons";
+import { Link as RouterLink } from "react-router-dom";
 
 const WhosWatching = () => {
   const { users }: any = useContext(UsersContext);
-  console.log(users[0].name);
   return (
-    <Flex mt={"60px"} flexDir={"column"} h={"88%"} justify={"space-between"}>
+    <Flex
+      mt={"60px"}
+      flexDir={"column"}
+      h={"88%"}
+      justify={"space-between"}
+      alignItems={"center"}
+    >
       <Text fontSize={"5xl"} color={"#ffff"}>
         Who is Watching?
       </Text>
-      <Flex justifyContent={"center"}>
+      <HStack spacing={"90px"} justifyContent={"center"}>
         {users.map((user, key) => {
           return (
             <Avatar
@@ -22,11 +30,21 @@ const WhosWatching = () => {
             />
           );
         })}
-      </Flex>
+      </HStack>
       <Box>
-        <HStack spacing={"30px"}>
-          <NavigationButtons content={"ADULT"} />
-          <NavigationButtons content={"KID"} />
+        <HStack spacing={"30px"} justifyContent={"center"}>
+          <RouterLink to={"/register-adult"}>
+            <NavigationButtons
+              content={"ADULT"}
+              icon={<AiOutlinePlus className="marginRight" />}
+            />
+          </RouterLink>
+          <RouterLink to={"/register-kid"}>
+            <NavigationButtons
+              content={"KID"}
+              icon={<AiOutlinePlus className="marginRight" />}
+            />
+          </RouterLink>
         </HStack>
         <Box textAlign={"center"}>
           <Text

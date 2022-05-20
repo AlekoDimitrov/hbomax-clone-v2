@@ -11,8 +11,10 @@ const NavigationButtons = (props) => {
       color={"#ffff"}
       letterSpacing={"2px"}
       onClick={props.onClick}
+      disabled={props.disabled}
     >
-      {props.icon} {props.content}
+      {props.icon}
+      {props.content}
     </Button>
   );
 };
