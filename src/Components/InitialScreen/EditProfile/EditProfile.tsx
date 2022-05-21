@@ -1,19 +1,27 @@
 import React, { useContext, useState } from "react";
-import { Box, Button, Flex, HStack, Input, Text } from "@chakra-ui/react";
+import { Flex, HStack, Input, Text } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import Avatar from "../Avatar/Avatar";
 import { AiOutlineCamera } from "react-icons/ai";
 import ColorButtons from "../ColorButtons/ColorButtons";
 import { BsPerson } from "react-icons/bs";
 import NavigationButtons from "../NavigationButtons/NavigationButtons";
-import { BackgroundContext, PassedUserContext } from "../../../Helper/Context";
+import {
+  BackgroundContext,
+  PassedUserContext,
+  UsersContext,
+} from "../../../Helper/Context";
 
 const EditProfile = () => {
+  const { users, setUsers }: any = useContext(UsersContext);
   const { passedUser, setPassedUser }: any = useContext(PassedUserContext);
+  const [updatedUser, setUpdatedUser] = useState(false);
   const [buttonToggle, setButtonToggle] = useState(
     passedUser === undefined ? true : false
   );
   const { background }: any = useContext(BackgroundContext);
+  // console.log(users);
+
   return (
     <>
       <Flex
@@ -29,14 +37,14 @@ const EditProfile = () => {
           Edit Profile
         </Text>
 
-        <Flex w={"35%"} justify={"space-between"}>
+        <Flex w={"50%"} justify={"space-between"}>
           <Flex flexDir={"column"} align={"center"}>
             <Avatar
               icon={<BsPerson />}
               background={
-                passedUser === undefined
+                updatedUser
                   ? background.avatarBackground
-                  : passedUser.userTheme.avatarBackground
+                  : passedUser.userDetails.userTheme.avatarBackground
               }
             />
             <Flex
@@ -68,7 +76,9 @@ const EditProfile = () => {
               fontSize={"2xl"}
               maxLength={20}
               id={"inputName"}
-              defaultValue={passedUser === undefined ? "" : passedUser.name}
+              defaultValue={
+                passedUser === undefined ? "" : passedUser.userDetails.name
+              }
               onChange={() => {
                 if (
                   (document.getElementById("inputName") as HTMLInputElement)
@@ -83,18 +93,33 @@ const EditProfile = () => {
             />
 
             <Flex w={"100%"} justify={"space-between"}>
-              <ColorButtons />
+              <ColorButtons setUpdatedUser={setUpdatedUser} />
             </Flex>
           </Flex>
         </Flex>
-        <Flex w={"25%"} justify={"space-around"} mb={"30px"}>
-          <RouterLink to={"/who-is-watching"}>
+        <HStack spacing={"40px"} mb={"30px"}>
+          <RouterLink
+            to={"/who-is-watching"}
+            onClick={() => {
+              let updateOldUsers = users;
+              updateOldUsers[passedUser.userIdentifier] = {
+                name: (document.getElementById("inputName") as HTMLInputElement)
+                  .value,
+                userTheme: {
+                  avatarBackground: background.avatarBackground,
+                  background: background.background,
+                },
+              };
+
+              setUsers(updateOldUsers);
+            }}
+          >
             <NavigationButtons content={"SAVE"} disabled={buttonToggle} />
           </RouterLink>
           <RouterLink to={"/manage-profiles"}>
             <NavigationButtons content="CANCEL" />
           </RouterLink>
-        </Flex>
+        </HStack>
       </Flex>
     </>
   );

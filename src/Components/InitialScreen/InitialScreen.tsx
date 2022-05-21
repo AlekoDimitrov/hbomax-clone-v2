@@ -18,12 +18,14 @@ const InitialScreen = () => {
       <div className="circleShadow" />
       <Flex
         h={"100vh"}
+        w={"100%"}
+        justify={"center"}
         minH={"700px"}
         padding={"30px"}
         background={background.background}
       >
         <HBOSvgLogo className="colorWhite" />
-        <Flex zIndex={1} flexDir={"column"} alignItems={"center"} w={"100%"}>
+        <Flex zIndex={1} flexDir={"column"} alignItems={"center"} w={"70%"}>
           <Routes>
             <Route path="/" element={<Register />} />
             <Route path="/who-is-watching" element={<WhosWatching />} />

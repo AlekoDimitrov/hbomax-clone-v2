@@ -30,10 +30,10 @@ const ManageProfiles = () => {
           {users.map((user, key) => {
             return (
               <Box
-                onClick={() => {
-                  setPassedUser(user);
-                }}
                 key={key}
+                onClick={() =>
+                  setPassedUser({ userDetails: user, userIdentifier: key })
+                }
               >
                 <RouterLink to={"edit-profile"}>
                   <Avatar

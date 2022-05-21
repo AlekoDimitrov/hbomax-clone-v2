@@ -16,8 +16,6 @@ const Register = () => {
 
   return (
     <>
-      {console.log(users)}
-      {console.log(users.length)}
       <Flex
         mt={"60px"}
         flexDir={"column"}
@@ -31,7 +29,7 @@ const Register = () => {
           Your First User
         </Text>
 
-        <Flex w={"35%"} justify={"space-between"}>
+        <Flex w={"50%"} justify={"space-between"}>
           <Flex flexDir={"column"} align={"center"}>
             <Avatar icon={<BsPerson />} />
             <Flex

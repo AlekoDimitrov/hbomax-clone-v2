@@ -27,7 +27,7 @@ const RegisterKid = () => {
           Register Kid
         </Text>
 
-        <Flex w={"38%"} justify={"space-between"}>
+        <Flex w={"50%"} justify={"space-between"}>
           <Flex flexDir={"column"} align={"center"}>
             <Avatar icon={<MdChildCare />} />
             <Flex
@@ -93,7 +93,7 @@ const RegisterKid = () => {
             </Flex>
           </Flex>
         </Flex>
-        <Flex w={"25%"} justify={"space-around"} mb={"30px"}>
+        <HStack spacing={"40px"} mb={"30px"}>
           <RouterLink to={"/who-is-watching"}>
             <NavigationButtons
               content={"SAVE"}
@@ -116,7 +116,7 @@ const RegisterKid = () => {
           <RouterLink to={"/who-is-watching"}>
             <NavigationButtons content="CANCEL" />
           </RouterLink>
-        </Flex>
+        </HStack>
       </Flex>
     </>
   );

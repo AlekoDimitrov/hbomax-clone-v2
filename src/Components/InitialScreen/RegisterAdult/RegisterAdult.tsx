@@ -11,7 +11,7 @@ import { useContext } from "react";
 
 const RegisterAdult = () => {
   const { users, setUsers }: any = useContext(UsersContext);
-  const { background } = useContext(BackgroundContext);
+  const { background }: any = useContext(BackgroundContext);
   const [buttonToggle, setButtonToggle] = useState(true);
 
   return (
@@ -29,7 +29,7 @@ const RegisterAdult = () => {
           Register Adult
         </Text>
 
-        <Flex w={"35%"} justify={"space-between"}>
+        <Flex w={"50%"} justify={"space-between"}>
           <Flex flexDir={"column"} align={"center"}>
             <Avatar icon={<BsPerson />} />
             <Flex
@@ -74,7 +74,7 @@ const RegisterAdult = () => {
             </Flex>
           </Flex>
         </Flex>
-        <Flex w={"25%"} justify={"space-around"} mb={"30px"}>
+        <HStack spacing={"40px"} mb={"30px"}>
           <RouterLink to={"/who-is-watching"}>
             <NavigationButtons
               content={"SAVE"}
@@ -97,7 +97,7 @@ const RegisterAdult = () => {
           <RouterLink to={"/who-is-watching"}>
             <NavigationButtons content="CANCEL" />
           </RouterLink>
-        </Flex>
+        </HStack>
       </Flex>
     </>
   );

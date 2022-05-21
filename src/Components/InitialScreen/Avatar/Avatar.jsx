@@ -20,7 +20,11 @@ const Avatar = (props) => {
 
   return (
     <motion.div variants={variants} whileHover="whileHover">
-      <Flex cursor={"pointer"} position={"relative"} width={"fit-content"}>
+      <Flex
+        cursor={"pointer"}
+        position={"relative"}
+        width={"fit-content"}
+      >
         <Box
           className="circleBorder"
           background={
