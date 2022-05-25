@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { Flex, HStack, Input, Text } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
-import Avatar from "../Avatar/Avatar";
+import BigAvatar from "../BigAvatar/BigAvatar";
 import { AiOutlineCamera } from "react-icons/ai";
 import ColorButtons from "../ColorButtons/ColorButtons";
 import { BsPerson } from "react-icons/bs";
-import NavigationButtons from "../NavigationButtons/NavigationButtons";
+import NavigationButtons from "../../../shared/NavigationButtons/NavigationButtons";
 import {
   BackgroundContext,
   PassedUserContext,
@@ -20,7 +20,6 @@ const EditProfile = () => {
     passedUser === undefined ? true : false
   );
   const { background }: any = useContext(BackgroundContext);
-  // console.log(users);
 
   return (
     <>
@@ -39,7 +38,7 @@ const EditProfile = () => {
 
         <Flex w={"50%"} justify={"space-between"}>
           <Flex flexDir={"column"} align={"center"}>
-            <Avatar
+            <BigAvatar
               icon={<BsPerson />}
               background={
                 updatedUser

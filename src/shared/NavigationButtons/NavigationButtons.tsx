@@ -6,9 +6,11 @@ const NavigationButtons = (props) => {
   return (
     <Button
       borderRadius={50}
-      w={200}
+      w={props.w ? props.w : 200}
       h={12}
-      backgroundColor={"rgba(255,255,255,0.2)"}
+      backgroundColor={
+        props.backgroundColor ? props.backgroundColor : "rgba(255,255,255,0.2)"
+      }
       color={"#ffff"}
       letterSpacing={"2px"}
       onClick={props.onClick}

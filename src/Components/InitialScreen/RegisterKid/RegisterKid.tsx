@@ -1,6 +1,6 @@
 import { Box, Center, Flex, HStack, Input, Text } from "@chakra-ui/react";
-import NavigationButtons from "../NavigationButtons/NavigationButtons";
-import Avatar from "../Avatar/Avatar";
+import NavigationButtons from "../../../shared/NavigationButtons/NavigationButtons";
+import BigAvatar from "../BigAvatar/BigAvatar";
 import { AiOutlineCamera } from "react-icons/ai";
 import ColorButtons from "../ColorButtons/ColorButtons";
 import { Link as RouterLink } from "react-router-dom";
@@ -29,7 +29,7 @@ const RegisterKid = () => {
 
         <Flex w={"50%"} justify={"space-between"}>
           <Flex flexDir={"column"} align={"center"}>
-            <Avatar icon={<MdChildCare />} />
+            <BigAvatar icon={<MdChildCare />} />
             <Flex
               mt={"10px"}
               w={"210px"}

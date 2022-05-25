@@ -5,10 +5,12 @@ import React, { useState } from "react";
 import InitialScreen from "./Components/InitialScreen/InitialScreen";
 import "@fontsource/urbanist";
 import {
+  ActiveUserContext,
   BackgroundContext,
   PassedUserContext,
   UsersContext,
 } from "./Helper/Context";
+import SecondaryScreen from "./Components/SecondaryScreen/SecondaryScreen";
 
 const theme = extendTheme({
   fonts: {
@@ -46,16 +48,38 @@ function App() {
     userIdentifier: 0,
   });
 
+  const [activeUser, setActiveUser] = useState("Guest");
+
   return (
     <React.StrictMode>
       <ChakraProvider theme={theme}>
         <Router>
           <UsersContext.Provider value={{ users, setUsers }}>
-            <BackgroundContext.Provider value={{ background, setBackground }}>
-              <PassedUserContext.Provider value={{ passedUser, setPassedUser }}>
-                <InitialScreen />
-              </PassedUserContext.Provider>
-            </BackgroundContext.Provider>
+            <PassedUserContext.Provider value={{ passedUser, setPassedUser }}>
+              <BackgroundContext.Provider value={{ background, setBackground }}>
+                <ActiveUserContext.Provider
+                  value={{ activeUser, setActiveUser }}
+                >
+                  <Routes>
+                    <Route
+                      path="*"
+                      element={
+                        <PassedUserContext.Provider
+                          value={{ passedUser, setPassedUser }}
+                        >
+                          <BackgroundContext.Provider
+                            value={{ background, setBackground }}
+                          >
+                            <InitialScreen />
+                          </BackgroundContext.Provider>
+                        </PassedUserContext.Provider>
+                      }
+                    />
+                    <Route path="/watch" element={<SecondaryScreen />} />
+                  </Routes>
+                </ActiveUserContext.Provider>
+              </BackgroundContext.Provider>
+            </PassedUserContext.Provider>
           </UsersContext.Provider>
         </Router>
       </ChakraProvider>
