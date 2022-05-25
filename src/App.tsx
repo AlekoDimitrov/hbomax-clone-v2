@@ -7,6 +7,7 @@ import "@fontsource/urbanist";
 import {
   ActiveUserContext,
   BackgroundContext,
+  MoviesContext,
   PassedUserContext,
   UsersContext,
 } from "./Helper/Context";
@@ -50,6 +51,8 @@ function App() {
 
   const [activeUser, setActiveUser] = useState("Guest");
 
+  const [movies, setMovies] = useState("");
+
   return (
     <React.StrictMode>
       <ChakraProvider theme={theme}>
@@ -75,7 +78,14 @@ function App() {
                         </PassedUserContext.Provider>
                       }
                     />
-                    <Route path="/watch" element={<SecondaryScreen />} />
+                    <Route
+                      path="/watch/*"
+                      element={
+                        <MoviesContext.Provider value={{ movies, setMovies }}>
+                          <SecondaryScreen />
+                        </MoviesContext.Provider>
+                      }
+                    />
                   </Routes>
                 </ActiveUserContext.Provider>
               </BackgroundContext.Provider>
