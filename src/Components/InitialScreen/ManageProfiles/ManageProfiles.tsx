@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { Box, Button, Flex, HStack, Input, Text } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
-import Avatar from "../Avatar/Avatar";
+import BigAvatar from "../BigAvatar/BigAvatar";
 import { AiOutlineCamera } from "react-icons/ai";
 import ColorButtons from "../ColorButtons/ColorButtons";
 import { BiEdit } from "react-icons/bi";
-import NavigationButtons from "../NavigationButtons/NavigationButtons";
+import NavigationButtons from "../../../shared/NavigationButtons/NavigationButtons";
 import { PassedUserContext, UsersContext } from "../../../Helper/Context";
 
 const ManageProfiles = () => {
@@ -36,7 +36,7 @@ const ManageProfiles = () => {
                 }
               >
                 <RouterLink to={"edit-profile"}>
-                  <Avatar
+                  <BigAvatar
                     name={user.name}
                     icon={<BiEdit fontSize={"50px"} color={"#E2E1E5"} />}
                     background={user.userTheme.avatarBackground}

@@ -1,10 +1,10 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import React, { useContext } from "react";
-import "./Avatar.css";
+import "./BigAvatar.css";
 import { motion } from "framer-motion";
 import { BackgroundContext } from "../../../Helper/Context";
 
-const Avatar = (props) => {
+const BigAvatar = (props) => {
   let variants = "";
   if (props.name !== undefined) {
     variants = {
@@ -16,17 +16,13 @@ const Avatar = (props) => {
       },
     };
   }
-  const { background } = useContext(BackgroundContext);
+  const { background }: any = useContext(BackgroundContext);
 
   return (
     <motion.div variants={variants} whileHover="whileHover">
-      <Flex
-        cursor={"pointer"}
-        position={"relative"}
-        width={"fit-content"}
-      >
+      <Flex cursor={"pointer"} position={"relative"} width={"fit-content"}>
         <Box
-          className="circleBorder"
+          className="bigCircleBorder"
           background={
             props.background ? props.background : background.avatarBackground
           }
@@ -55,4 +51,4 @@ const Avatar = (props) => {
   );
 };
 
-export default Avatar;
+export default BigAvatar;

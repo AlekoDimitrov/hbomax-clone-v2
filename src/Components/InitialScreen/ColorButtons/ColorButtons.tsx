@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useContext } from "react";
 import { BackgroundContext } from "../../../Helper/Context";
 
-const ColorButtons = ({ setUpdatedUser }) => {
+const ColorButtons = (props) => {
   const { setBackground }: any = useContext(BackgroundContext);
   const buttons = [
     {
@@ -47,7 +47,8 @@ const ColorButtons = ({ setUpdatedUser }) => {
                 avatarBackground: button.avatarBackground,
               });
               {
-                setUpdatedUser !== undefined && setUpdatedUser(true);
+                props.setUpdatedUser !== undefined &&
+                  props.setUpdatedUser(true);
               }
             }}
             key={key}

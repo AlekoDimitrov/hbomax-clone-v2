@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Box, Button, Flex, HStack, Input, Text } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
-import Avatar from "../Avatar/Avatar";
+import BigAvatar from "../BigAvatar/BigAvatar";
 import { AiOutlineCamera } from "react-icons/ai";
 import ColorButtons from "../ColorButtons/ColorButtons";
 import { BsPerson } from "react-icons/bs";
-import NavigationButtons from "../NavigationButtons/NavigationButtons";
+import NavigationButtons from "../../../shared/NavigationButtons/NavigationButtons";
 import { BackgroundContext, UsersContext } from "../../../Helper/Context";
 import { useContext } from "react";
 
@@ -31,7 +31,7 @@ const RegisterAdult = () => {
 
         <Flex w={"50%"} justify={"space-between"}>
           <Flex flexDir={"column"} align={"center"}>
-            <Avatar icon={<BsPerson />} />
+            <BigAvatar icon={<BsPerson />} />
             <Flex
               mt={"10px"}
               w={"210px"}

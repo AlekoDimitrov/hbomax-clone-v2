@@ -19,7 +19,7 @@
   transform: translate(-50%, -50%);
 }
 
-.circleBorder {
+.bigCircleBorder {
   width: 160px;
   height: 160px;
   border: 6px solid transparent;

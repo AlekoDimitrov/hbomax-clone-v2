@@ -2,13 +2,14 @@ import "./WhosWatching.css";
 import { Box, Flex, HStack, Text } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
-import { UsersContext } from "../../../Helper/Context";
-import Avatar from "../Avatar/Avatar";
-import NavigationButtons from "../NavigationButtons/NavigationButtons";
+import { ActiveUserContext, UsersContext } from "../../../Helper/Context";
+import BigAvatar from "../BigAvatar/BigAvatar";
+import NavigationButtons from "../../../shared/NavigationButtons/NavigationButtons";
 import { Link as RouterLink } from "react-router-dom";
 
 const WhosWatching = () => {
   const { users }: any = useContext(UsersContext);
+  const { setActiveUser }: any = useContext(ActiveUserContext);
   return (
     <Flex
       mt={"60px"}
@@ -23,11 +24,14 @@ const WhosWatching = () => {
       <HStack spacing={"90px"} justifyContent={"center"}>
         {users.map((user, key) => {
           return (
-            <Avatar
-              name={user.name}
-              background={user.userTheme.avatarBackground}
-              key={key}
-            />
+            <Box key={key} onClick={() => setActiveUser(user.name)}>
+              <RouterLink to={"/watch"}>
+                <BigAvatar
+                  name={user.name}
+                  background={user.userTheme.avatarBackground}
+                />
+              </RouterLink>
+            </Box>
           );
         })}
       </HStack>
