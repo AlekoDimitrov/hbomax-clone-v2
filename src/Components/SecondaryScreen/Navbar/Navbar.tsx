@@ -7,6 +7,7 @@ import { RiMenu2Fill } from "react-icons/ri";
 import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ActiveUserContext } from "../../../Helper/Context";
+import { Link as RouterLink } from "react-router-dom";
 
 const Navbar = () => {
   const [navBackground, setNavBackground] = useState("rgba(0, 0, 0, 0)");
@@ -50,7 +51,9 @@ const Navbar = () => {
             <BsSearch />
           </Flex>
           <HBOSvgLogo className="colorWhite" />
-          <MinAvatar name={activeUser} />
+          <RouterLink to={"/who-is-watching"}>
+            <MinAvatar name={activeUser} />
+          </RouterLink>
         </Flex>
       </motion.div>
     </>
