@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./Home.css";
-import { Box, Flex, HStack, Text } from "@chakra-ui/react";
+import { Box, Flex, HStack, Square, Text } from "@chakra-ui/react";
 import { BiPlay } from "react-icons/bi";
 import { RiArrowRightSLine } from "react-icons/ri";
 import NavigationButtons from "../../../shared/NavigationButtons/NavigationButtons";
@@ -12,11 +12,12 @@ const Home = () => {
   const { movies }: any = useContext(MoviesContext);
   useMovieFetch();
 
-  console.log(movies[0]);
+  console.log(movies);
   return (
     <Box
+      overflowX={"hidden"}
       className="innerShadow"
-      h={"1100px"}
+      h={"1200px"}
       backgroundColor={"#000000"}
       backgroundImage={
         "https://images3.alphacoders.com/106/thumb-1920-1064725.jpg"
@@ -63,11 +64,26 @@ const Home = () => {
               </Text>
               <RiArrowRightSLine color="#a6a6a6" />
             </Flex>
-            <HStack spacing={"10px"} w={"fit-content"} mt={"10px"}>
-              {/* {movies.map((key) => {
-                return <SquareCard key={key} />;
-              })} */}
-            </HStack>
+            <Box
+              display={"grid"}
+              gridAutoFlow={"column"}
+              gridAutoColumns={"10%"}
+              gap={"10px"}
+              w={"100%"}
+              mt={"10px"}
+              className="outerShadow"
+              overflowX={"auto"}
+            >
+              {movies.length > 0 &&
+                movies.map((movie) => {
+                  return (
+                    <SquareCard
+                      key={movie.id}
+                      poster_path={movie.poster_path}
+                    />
+                  );
+                })}
+            </Box>
           </Box>
         </Flex>
       </Flex>

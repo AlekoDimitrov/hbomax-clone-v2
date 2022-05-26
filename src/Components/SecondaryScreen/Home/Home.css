@@ -17,3 +17,6 @@
 .innerShadow {
   box-shadow: inset 0px -200px 150px #000000;
 }
+.outerShadow {
+  box-shadow: 0px -200px 150px #000000;
+}
