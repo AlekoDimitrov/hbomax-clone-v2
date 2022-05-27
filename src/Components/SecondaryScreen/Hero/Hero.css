@@ -1,0 +1,22 @@
+.gradientCircle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(76, 23, 200, 1);
+  background: linear-gradient(90deg, #5b1ce6 0%, #9276cf 100%);
+}
+.gradientCircle:hover {
+  background: #5b1ce6;
+}
+.absoluteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.innerShadow {
+  box-shadow: inset 0px -200px 150px #000000;
+}
+.outerShadow {
+  box-shadow: 0px -200px 150px #000000;
+}
