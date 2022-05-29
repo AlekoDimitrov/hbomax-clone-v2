@@ -6,7 +6,7 @@ import ChooseWatch from "../ChooseWatch/ChooseWatch";
 
 const Home = () => {
   return (
-    <Box>
+    <Box overflowX={"hidden"}>
       <Hero />
       <ChooseWatch />
     </Box>

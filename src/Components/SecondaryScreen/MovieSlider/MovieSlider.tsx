@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Box, Flex, HStack, Text } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { MoviesContext } from "../../../Helper/Context";
 import useMovieFetch from "../../../API/useMovieFetch";
 import SquareCard from "../SquareCard/SquareCard";
 
-const MovieSlider = () => {
+const MovieSlider = (props) => {
   const { movies }: any = useContext(MoviesContext);
   useMovieFetch();
 
@@ -17,7 +17,7 @@ const MovieSlider = () => {
   });
 
   return (
-    <Box w={"100vw"} overflow={"hidden"}>
+    <Box w={"100vw"} overflow={"hidden"} cursor={"grab"}>
       <motion.div
         ref={containerSlider}
         drag={"x"}
@@ -27,14 +27,20 @@ const MovieSlider = () => {
         }}
         dragElastic={0.2}
       >
-        <Flex pr={"100px"} w={"fit-content"} ref={slider}>
+        <Flex pr={"80px"} w={"fit-content"} ref={slider}>
           {movies.length > 0 &&
             movies.map((movie, key) => {
               return (
                 <SquareCard
+                  titles={props.titles}
                   key={key}
-                  title={movie.title}
-                  poster_path={movie.poster_path}
+                  title={movie.name ? movie.name : movie.title}
+                  img={
+                    props.img === "backdrop_path"
+                      ? movie.backdrop_path
+                      : movie.poster_path
+                  }
+                  width={props.width}
                 />
               );
             })}
