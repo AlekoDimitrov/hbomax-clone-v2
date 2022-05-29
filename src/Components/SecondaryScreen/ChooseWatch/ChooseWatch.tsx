@@ -1,9 +1,17 @@
-import React from 'react'
+import { Box } from "@chakra-ui/react";
+import "./ChooseWatch.css";
+import React, { useContext } from "react";
+import { ActiveUserContext, BackgroundContext } from "../../../Helper/Context";
 
 const ChooseWatch = () => {
+  const { activeUser }: any = useContext(ActiveUserContext);
   return (
-    <div>ChooseWatch</div>
-  )
-}
+    <Box
+      className="innerTopShadow"
+      h={"1000px"}
+      background={activeUser[2]}
+    ></Box>
+  );
+};
 
-export default ChooseWatch
+export default ChooseWatch;

@@ -27,36 +27,34 @@ const Navbar = () => {
   });
 
   return (
-    <>
-      <motion.div
-        className="navContainer"
-        initial={{ backgroundColor: "rgba(0, 0, 0, 0.8)" }}
-        animate={{ backgroundColor: navBackground }}
-        whileHover={{
-          backgroundColor: "rgba(0, 0, 0, 0.8)",
-          transition: { duration: 0.4 },
-        }}
+    <motion.div
+      className="navContainer"
+      initial={{ backgroundColor: "rgba(0, 0, 0, 0.8)" }}
+      animate={{ backgroundColor: navBackground }}
+      whileHover={{
+        backgroundColor: "rgba(0, 0, 0, 0.8)",
+        transition: { duration: 0.4 },
+      }}
+    >
+      <Flex
+        w={"100%"}
+        h={"100%"}
+        color={"#ffff"}
+        align={"center"}
+        justify={"space-between"}
+        pl="60px"
+        pr="60px"
       >
-        <Flex
-          w={"100%"}
-          h={"100%"}
-          color={"#ffff"}
-          align={"center"}
-          justify={"space-between"}
-          pl="60px"
-          pr="60px"
-        >
-          <Flex w={"80px"} justify={"space-between"} fontSize={"20px"}>
-            <RiMenu2Fill />
-            <BsSearch />
-          </Flex>
-          <HBOSvgLogo className="colorWhite" />
-          <RouterLink to={"/who-is-watching"}>
-            <MinAvatar name={activeUser} />
-          </RouterLink>
+        <Flex w={"80px"} justify={"space-between"} fontSize={"20px"}>
+          <RiMenu2Fill />
+          <BsSearch />
         </Flex>
-      </motion.div>
-    </>
+        <HBOSvgLogo className="colorWhite" />
+        <RouterLink to={"/who-is-watching"}>
+          <MinAvatar name={activeUser} />
+        </RouterLink>
+      </Flex>
+    </motion.div>
   );
 };
 

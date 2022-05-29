@@ -24,7 +24,16 @@ const WhosWatching = () => {
       <HStack spacing={"90px"} justifyContent={"center"}>
         {users.map((user, key) => {
           return (
-            <Box key={key} onClick={() => setActiveUser(user.name)}>
+            <Box
+              key={key}
+              onClick={() =>
+                setActiveUser([
+                  user.name,
+                  user.userTheme.avatarBackground,
+                  user.userTheme.background,
+                ])
+              }
+            >
               <RouterLink to={"/watch"}>
                 <BigAvatar
                   name={user.name}
