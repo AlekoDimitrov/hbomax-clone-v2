@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Box, Flex, HStack, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { MoviesContext } from "../../../Helper/Context";
@@ -9,10 +9,25 @@ const MovieSlider = () => {
   const { movies }: any = useContext(MoviesContext);
   useMovieFetch();
 
+  const [width, setWidth] = useState(null);
+  const slider = useRef();
+  const containerSlider = useRef();
+  useEffect(() => {
+    setWidth(-slider.current.scrollWidth + containerSlider.current.offsetWidth);
+  });
+
   return (
-    <Box w={"100vw"}>
-      <motion.div drag={"x"} dragConstraints={{ right: 0 }} dragElastic={0.15}>
-        <Flex w={"fit-content"}>
+    <Box w={"100vw"} overflow={"hidden"}>
+      <motion.div
+        ref={containerSlider}
+        drag={"x"}
+        dragConstraints={{
+          right: 0,
+          left: width,
+        }}
+        dragElastic={0.2}
+      >
+        <Flex pr={"100px"} w={"fit-content"} ref={slider}>
           {movies.length > 0 &&
             movies.map((movie, key) => {
               return (

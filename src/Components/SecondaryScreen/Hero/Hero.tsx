@@ -14,11 +14,18 @@ const Hero = () => {
   return (
     <Box
       className="innerShadow"
-      h={"1000px"}
+      h={"fit-content"}
       backgroundColor={"#000000"}
       backgroundImage="https://images3.alphacoders.com/106/thumb-1920-1064725.jpg"
+      overflowX={"hidden"}
     >
-      <Flex color={"#ffff"} h={"55%"} align={"flex-end"} ml={"50px"}>
+      <Flex
+        color={"#ffff"}
+        h={"55%"}
+        align={"flex-end"}
+        ml={"50px"}
+        mt={"400px"}
+      >
         <Flex flexDir={"column"} h={"34%"} justify={"space-between"}>
           <Box zIndex={1}>
             <Box w={"150px"}>
