@@ -1,17 +1,21 @@
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
-const SquareCard = ({ title, poster_path }) => {
+const SquareCard = (props) => {
   const IMG_API = "https://image.tmdb.org/t/p/w500";
 
   return (
     <Box
-      w={"200px"}
-      backgroundColor={"#ffff"}
+      w={props.width ? props.width : "200px"}
       mr={"20px"}
       pointerEvents={"none"}
     >
-      <Image src={IMG_API + poster_path} alt={title} cursor={"pointer"} />
+      <Image src={IMG_API + props.img} alt={props.title} cursor={"pointer"} />
+      {props.titles && (
+        <Text color={"whiteAlpha.800"} mt={"10px"}>
+          {props.title}
+        </Text>
+      )}
     </Box>
   );
 };
