@@ -6,12 +6,12 @@ const SquareCard = ({ title, poster_path }) => {
 
   return (
     <Box
-      className="outerShadow"
       w={"200px"}
       backgroundColor={"#ffff"}
       mr={"20px"}
+      pointerEvents={"none"}
     >
-      <Image src={IMG_API + poster_path} alt={title} />
+      <Image src={IMG_API + poster_path} alt={title} cursor={"pointer"} />
     </Box>
   );
 };

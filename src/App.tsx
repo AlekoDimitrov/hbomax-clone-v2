@@ -49,7 +49,11 @@ function App() {
     userIdentifier: 0,
   });
 
-  const [activeUser, setActiveUser] = useState("Guest");
+  const [activeUser, setActiveUser] = useState([
+    "Guest",
+    "linear-gradient(140deg, #ff83e2, #fd04c4) border-box",
+    "linear-gradient(90deg, #5b135e 0%, #251e6f 100%) border-box",
+  ]);
 
   const [movies, setMovies] = useState("");
 

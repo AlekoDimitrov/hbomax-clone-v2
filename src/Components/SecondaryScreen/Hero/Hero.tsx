@@ -7,32 +7,40 @@ import NavigationButtons from "../../../shared/NavigationButtons/NavigationButto
 import SquareCard from "../SquareCard/SquareCard";
 import { MoviesContext } from "../../../Helper/Context";
 import useMovieFetch from "../../../API/useMovieFetch";
+import { motion } from "framer-motion";
+import MovieSlider from "../MovieSlider/MovieSlider";
 
 const Hero = () => {
-  const { movies }: any = useContext(MoviesContext);
-  useMovieFetch();
-
   return (
     <Box
       className="innerShadow"
-      h={"1000px"}
+      h={"fit-content"}
       backgroundColor={"#000000"}
       backgroundImage="https://images3.alphacoders.com/106/thumb-1920-1064725.jpg"
+      overflowX={"hidden"}
     >
-      <Flex color={"#ffff"} h={"55%"} align={"flex-end"} ml={"50px"}>
+      <Flex
+        color={"#ffff"}
+        h={"55%"}
+        align={"flex-end"}
+        ml={"50px"}
+        mt={"400px"}
+      >
         <Flex flexDir={"column"} h={"34%"} justify={"space-between"}>
-          <Box w={"150px"}>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/No_Time_to_Die.svg/1200px-No_Time_to_Die.svg.png"
-              alt=""
-            />
+          <Box zIndex={1}>
+            <Box w={"150px"}>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/No_Time_to_Die.svg/1200px-No_Time_to_Die.svg.png"
+                alt=""
+              />
+            </Box>
+            <Text fontSize={"1xl"} fontWeight={"bold"} mt={"10px"}>
+              MOVIE PREMIERE
+            </Text>
+            <Text fontSize={"1xl"}>
+              He's left the service. But danger has a way of following him.
+            </Text>
           </Box>
-          <Text fontSize={"1xl"} fontWeight={"bold"} mt={"10px"}>
-            MOVIE PREMIERE
-          </Text>
-          <Text fontSize={"1xl"}>
-            He's left the service. But danger has a way of following him.
-          </Text>
           <HStack spacing={"15px"} mt={"40px"} align={"center"}>
             <Box
               className="gradientCircle"
@@ -50,29 +58,18 @@ const Hero = () => {
             />
           </HStack>
           <Box>
-            <Flex align={"center"} mt={"55px"} mb={"15px"} cursor={"pointer"}>
+            <Flex align={"center"} mt={"55px"} mb={"15px"}>
               <Text
                 fontSize={"25px"}
                 fontWeight={"bold"}
                 fontFamily={"sans-serif"}
+                cursor={"pointer"}
               >
                 Continue Watching
               </Text>
               <RiArrowRightSLine color="#a6a6a6" />
             </Flex>
-            <Box w={"100vw"} overflowX={"auto"}>
-              <Flex w={"fit-content"}>
-                {movies.length > 0 &&
-                  movies.map((movie) => {
-                    return (
-                      <SquareCard
-                        title={movie.title}
-                        poster_path={movie.poster_path}
-                      />
-                    );
-                  })}
-              </Flex>
-            </Box>
+            <MovieSlider />
           </Box>
         </Flex>
       </Flex>
