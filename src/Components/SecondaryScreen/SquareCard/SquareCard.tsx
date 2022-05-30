@@ -9,6 +9,7 @@ const SquareCard = (props) => {
       w={props.width ? props.width : "200px"}
       mr={"20px"}
       pointerEvents={"none"}
+      zIndex={1}
     >
       <Image src={IMG_API + props.img} alt={props.title} cursor={"pointer"} />
       {props.titles && (

@@ -9,22 +9,127 @@ const ChooseWatch = () => {
   return (
     <Box
       className="innerTopShadow"
-      h={"1000px"}
       background={activeUser[2]}
       pl={"50px"}
+      position={"relative"}
     >
-      <Box pt={"80px"}>
-        <Text
-          fontSize={"25px"}
-          fontWeight={"bold"}
-          fontFamily={"sans-serif"}
-          cursor={"pointer"}
-          color={"#fff"}
-        >
-          For You
-        </Text>
-        <MovieSlider />
-      </Box>
+      <Box
+        position={"fixed"}
+        backgroundColor={"#fff"}
+        w={"100%"}
+        h={"100px"}
+        zIndex={100}
+      />
+      <Text
+        fontSize={"25px"}
+        fontWeight={"bold"}
+        fontFamily={"sans-serif"}
+        cursor={"pointer"}
+        color={"#fff"}
+        pt={"80px"}
+      >
+        For You
+      </Text>
+      <MovieSlider />
+      <Text
+        fontSize={"25px"}
+        fontWeight={"bold"}
+        fontFamily={"sans-serif"}
+        cursor={"pointer"}
+        color={"#fff"}
+        mt={"80px"}
+      >
+        Just Added
+      </Text>
+      <MovieSlider />{" "}
+      <Text
+        fontSize={"25px"}
+        fontWeight={"bold"}
+        fontFamily={"sans-serif"}
+        cursor={"pointer"}
+        color={"#fff"}
+        mt={"80px"}
+      >
+        Just Added
+      </Text>
+      <MovieSlider />{" "}
+      <Text
+        fontSize={"25px"}
+        fontWeight={"bold"}
+        fontFamily={"sans-serif"}
+        cursor={"pointer"}
+        color={"#fff"}
+        mt={"80px"}
+      >
+        Just Added
+      </Text>
+      <MovieSlider />{" "}
+      <Text
+        fontSize={"25px"}
+        fontWeight={"bold"}
+        fontFamily={"sans-serif"}
+        cursor={"pointer"}
+        color={"#fff"}
+        mt={"80px"}
+      >
+        Just Added
+      </Text>
+      <MovieSlider />{" "}
+      <Text
+        fontSize={"25px"}
+        fontWeight={"bold"}
+        fontFamily={"sans-serif"}
+        cursor={"pointer"}
+        color={"#fff"}
+        mt={"80px"}
+      >
+        Just Added
+      </Text>
+      <MovieSlider />{" "}
+      <Text
+        fontSize={"25px"}
+        fontWeight={"bold"}
+        fontFamily={"sans-serif"}
+        cursor={"pointer"}
+        color={"#fff"}
+        mt={"80px"}
+      >
+        Just Added
+      </Text>
+      <MovieSlider />{" "}
+      <Text
+        fontSize={"25px"}
+        fontWeight={"bold"}
+        fontFamily={"sans-serif"}
+        cursor={"pointer"}
+        color={"#fff"}
+        mt={"80px"}
+      >
+        Just Added
+      </Text>
+      <MovieSlider />{" "}
+      <Text
+        fontSize={"25px"}
+        fontWeight={"bold"}
+        fontFamily={"sans-serif"}
+        cursor={"pointer"}
+        color={"#fff"}
+        mt={"80px"}
+      >
+        Just Added
+      </Text>
+      <MovieSlider />{" "}
+      <Text
+        fontSize={"25px"}
+        fontWeight={"bold"}
+        fontFamily={"sans-serif"}
+        cursor={"pointer"}
+        color={"#fff"}
+        mt={"80px"}
+      >
+        Just Added
+      </Text>
+      <MovieSlider />
     </Box>
   );
 };
