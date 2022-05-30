@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { MoviesContext } from "../../../Helper/Context";
 import useMovieFetch from "../../../API/useMovieFetch";
 import SquareCard from "../SquareCard/SquareCard";
+import "./MovieSlider.css";
 
 const MovieSlider = (props) => {
   const { movies }: any = useContext(MoviesContext);
