@@ -7,6 +7,6 @@
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
-  background: linear-gradient(0deg, rgb(0 0 0 / 1), rgb(0 0 0 / 0));
+  z-index: -10;
+  background: linear-gradient(0deg, rgb(0 0 0 / 0.7), rgb(0 0 0 / 0.1));
 }
