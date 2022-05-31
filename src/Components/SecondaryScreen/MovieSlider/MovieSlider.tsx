@@ -1,24 +1,63 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Box, Flex } from "@chakra-ui/react";
+import {
+  MdOutlineArrowBackIos,
+  MdOutlineArrowForwardIos,
+} from "react-icons/md";
+import { Box, Flex, HStack, Text, VStack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { MoviesContext } from "../../../Helper/Context";
 import useMovieFetch from "../../../API/useMovieFetch";
 import SquareCard from "../SquareCard/SquareCard";
 import "./MovieSlider.css";
+import { MoviesContext } from "../../../Helper/Context";
 
 const MovieSlider = (props) => {
-  const { movies }: any = useContext(MoviesContext);
   useMovieFetch();
-
+  const { movies }: any = useContext(MoviesContext);
   const [width, setWidth] = useState(null);
   const slider = useRef();
+  const squareCardImg = useRef();
   const containerSlider = useRef();
   useEffect(() => {
     setWidth(-slider.current.scrollWidth + containerSlider.current.offsetWidth);
   });
+  const [arrowBackground, setArrowBackground] = useState("rgba(36,36,36, 0)");
+  console.log(squareCardImg);
 
   return (
-    <Box w={"100vw"} overflow={"hidden"} cursor={"grab"}>
+    <div
+      onMouseEnter={() => setArrowBackground("rgba(36,36,36, 0.6)")}
+      onMouseOut={() => setArrowBackground("rgba(36,36,36, 0.0)")}
+      className="mainContainer"
+    >
+      <Flex
+        align={"center"}
+        justify={"space-between"}
+        pointerEvents={"none"}
+        position={"absolute"}
+        zIndex={2}
+        h={"100%"}
+        w={"100%"}
+        pr={"65px"}
+      >
+        <motion.div
+          className="navArrowsContainer"
+          initial={{ backgroundColor: "rgba(36,36,36, 0)" }}
+          animate={{ backgroundColor: arrowBackground }}
+        >
+          <Text fontSize={"3xl"} color={"white"}>
+            <MdOutlineArrowBackIos />
+          </Text>
+        </motion.div>
+        <motion.div
+          className="navArrowsContainer"
+          initial={{ backgroundColor: "rgba(36,36,36, 0)" }}
+          animate={{ backgroundColor: arrowBackground }}
+        >
+          <Text fontSize={"3xl"} color={"white"}>
+            <MdOutlineArrowForwardIos />
+          </Text>
+        </motion.div>
+      </Flex>
       <motion.div
         ref={containerSlider}
         drag={"x"}
@@ -28,11 +67,12 @@ const MovieSlider = (props) => {
         }}
         dragElastic={0.2}
       >
-        <Flex pr={"80px"} w={"fit-content"} ref={slider}>
+        <Flex w={"fit-content"} ref={slider}>
           {movies.length > 0 &&
             movies.map((movie, key) => {
               return (
                 <SquareCard
+                  reference={squareCardImg}
                   titles={props.titles}
                   key={key}
                   title={movie.name ? movie.name : movie.title}
@@ -47,7 +87,7 @@ const MovieSlider = (props) => {
             })}
         </Flex>
       </motion.div>
-    </Box>
+    </div>
   );
 };
 

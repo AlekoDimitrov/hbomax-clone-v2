@@ -1,7 +1,7 @@
 import { Box, Text } from "@chakra-ui/react";
 import "./ChooseWatch.css";
 import React, { useContext } from "react";
-import { ActiveUserContext, BackgroundContext } from "../../../Helper/Context";
+import { ActiveUserContext } from "../../../Helper/Context";
 import MovieSlider from "../MovieSlider/MovieSlider";
 
 const ChooseWatch = () => {
@@ -13,13 +13,6 @@ const ChooseWatch = () => {
       pl={"50px"}
       position={"relative"}
     >
-      <Box
-        position={"fixed"}
-        backgroundColor={"#fff"}
-        w={"100%"}
-        h={"100px"}
-        zIndex={100}
-      />
       <Text
         fontSize={"25px"}
         fontWeight={"bold"}
@@ -31,94 +24,6 @@ const ChooseWatch = () => {
         For You
       </Text>
       <MovieSlider />
-      <Text
-        fontSize={"25px"}
-        fontWeight={"bold"}
-        fontFamily={"sans-serif"}
-        cursor={"pointer"}
-        color={"#fff"}
-        mt={"80px"}
-      >
-        Just Added
-      </Text>
-      <MovieSlider />{" "}
-      <Text
-        fontSize={"25px"}
-        fontWeight={"bold"}
-        fontFamily={"sans-serif"}
-        cursor={"pointer"}
-        color={"#fff"}
-        mt={"80px"}
-      >
-        Just Added
-      </Text>
-      <MovieSlider />{" "}
-      <Text
-        fontSize={"25px"}
-        fontWeight={"bold"}
-        fontFamily={"sans-serif"}
-        cursor={"pointer"}
-        color={"#fff"}
-        mt={"80px"}
-      >
-        Just Added
-      </Text>
-      <MovieSlider />{" "}
-      <Text
-        fontSize={"25px"}
-        fontWeight={"bold"}
-        fontFamily={"sans-serif"}
-        cursor={"pointer"}
-        color={"#fff"}
-        mt={"80px"}
-      >
-        Just Added
-      </Text>
-      <MovieSlider />{" "}
-      <Text
-        fontSize={"25px"}
-        fontWeight={"bold"}
-        fontFamily={"sans-serif"}
-        cursor={"pointer"}
-        color={"#fff"}
-        mt={"80px"}
-      >
-        Just Added
-      </Text>
-      <MovieSlider />{" "}
-      <Text
-        fontSize={"25px"}
-        fontWeight={"bold"}
-        fontFamily={"sans-serif"}
-        cursor={"pointer"}
-        color={"#fff"}
-        mt={"80px"}
-      >
-        Just Added
-      </Text>
-      <MovieSlider />{" "}
-      <Text
-        fontSize={"25px"}
-        fontWeight={"bold"}
-        fontFamily={"sans-serif"}
-        cursor={"pointer"}
-        color={"#fff"}
-        mt={"80px"}
-      >
-        Just Added
-      </Text>
-      <MovieSlider />{" "}
-      <Text
-        fontSize={"25px"}
-        fontWeight={"bold"}
-        fontFamily={"sans-serif"}
-        cursor={"pointer"}
-        color={"#fff"}
-        mt={"80px"}
-      >
-        Just Added
-      </Text>
-      <MovieSlider />{" "}
       <Text
         fontSize={"25px"}
         fontWeight={"bold"}

@@ -10,12 +10,12 @@ import { ActiveUserContext } from "../../../Helper/Context";
 import { Link as RouterLink } from "react-router-dom";
 
 const Navbar = () => {
-  const [navBackground, setNavBackground] = useState("rgba(0, 0, 0, 0)");
+  const [navBackground, setNavBackground] = useState("rgba(0, 0, 0, 0.8)");
   const { activeUser }: any = useContext(ActiveUserContext);
 
   const listenToScroll = () => {
     window.scrollY > 300
-      ? setNavBackground("rgba(0, 0, 0, 1)")
+      ? setNavBackground("rgba(0, 0, 0, 0.95)")
       : setNavBackground("rgba(0, 0, 0, 0)");
   };
 
