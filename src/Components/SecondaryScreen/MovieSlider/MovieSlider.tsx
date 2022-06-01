@@ -11,8 +11,11 @@ import "./MovieSlider.css";
 import { MoviesContext } from "../../../Helper/Context";
 
 const MovieSlider = (props) => {
-  useMovieFetch();
-  const { movies }: any = useContext(MoviesContext);
+  const movies = useMovieFetch(
+    props.customUrl
+      ? props.customUrl
+      : "/discover/movie?sort_by=popularity.desc&api_key="
+  );
   const [width, setWidth] = useState(null);
   const slider = useRef();
   const containerSlider = useRef();
@@ -44,12 +47,7 @@ const MovieSlider = (props) => {
           animate={{ backgroundColor: arrowBackground }}
           onClick={() => {
             arrowSlide < 0 &&
-              setArrowSlide(
-                arrowSlide +
-                  containerSlider.current.clientWidth /
-                    (slider.current.scrollWidth /
-                      containerSlider.current.clientWidth)
-              );
+              setArrowSlide(arrowSlide + containerSlider.current.offsetWidth);
           }}
         >
           <Text fontSize={"3xl"} color={"white"}>
@@ -62,12 +60,7 @@ const MovieSlider = (props) => {
           animate={{ backgroundColor: arrowBackground }}
           onClick={() => {
             arrowSlide > width &&
-              setArrowSlide(
-                arrowSlide -
-                  containerSlider.current.clientWidth /
-                    (slider.current.scrollWidth /
-                      containerSlider.current.clientWidth)
-              );
+              setArrowSlide(arrowSlide - containerSlider.current.offsetWidth);
           }}
         >
           <Text fontSize={"3xl"} color={"white"}>
@@ -77,13 +70,13 @@ const MovieSlider = (props) => {
       </Flex>
       <motion.div
         ref={containerSlider}
-        drag={"x"}
-        dragConstraints={{
-          right: 0,
-          left: width,
-        }}
-        dragElastic={0.2}
         animate={{ x: arrowSlide }}
+        // drag={"x"}
+        // dragConstraints={{
+        //   right: 0,
+        //   left: width,
+        // }}
+        // dragElastic={0.2}
       >
         <Flex w={"fit-content"} ref={slider} cursor={"grab"}>
           {movies.length > 0 &&
