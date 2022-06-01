@@ -7,12 +7,7 @@ import MovieSlider from "../MovieSlider/MovieSlider";
 const ChooseWatch = () => {
   const { activeUser }: any = useContext(ActiveUserContext);
   return (
-    <Box
-      className="innerTopShadow"
-      background={activeUser[2]}
-      pl={"50px"}
-      position={"relative"}
-    >
+    <Box className="innerTopShadow" background={activeUser[2]} pl={"50px"}>
       <Text
         fontSize={"25px"}
         fontWeight={"bold"}

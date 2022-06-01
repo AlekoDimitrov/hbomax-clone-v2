@@ -15,13 +15,11 @@ const MovieSlider = (props) => {
   const { movies }: any = useContext(MoviesContext);
   const [width, setWidth] = useState(null);
   const slider = useRef();
-  const squareCardImg = useRef();
   const containerSlider = useRef();
   useEffect(() => {
     setWidth(-slider.current.scrollWidth + containerSlider.current.offsetWidth);
   });
   const [arrowBackground, setArrowBackground] = useState("rgba(36,36,36, 0)");
-  console.log(squareCardImg);
 
   return (
     <div
@@ -71,18 +69,19 @@ const MovieSlider = (props) => {
           {movies.length > 0 &&
             movies.map((movie, key) => {
               return (
-                <SquareCard
-                  reference={squareCardImg}
-                  titles={props.titles}
-                  key={key}
-                  title={movie.name ? movie.name : movie.title}
-                  img={
-                    props.img === "backdrop_path"
-                      ? movie.backdrop_path
-                      : movie.poster_path
-                  }
-                  width={props.width}
-                />
+                <Box>
+                  <SquareCard
+                    titles={props.titles}
+                    key={key}
+                    title={movie.name ? movie.name : movie.title}
+                    img={
+                      props.img === "backdrop_path"
+                        ? movie.backdrop_path
+                        : movie.poster_path
+                    }
+                    width={props.width}
+                  />
+                </Box>
               );
             })}
         </Flex>
