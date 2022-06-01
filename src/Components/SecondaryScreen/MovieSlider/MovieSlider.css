@@ -1,12 +1,13 @@
 .navArrowsContainer {
-  /* pointer-events: none; */
   display: flex;
   align-items: center;
   height: 100%;
+  cursor: pointer;
+  pointer-events: all;
 }
 .mainContainer {
   width: 100vw;
   overflow: hidden;
-  cursor: grab;
   position: relative;
+  z-index: 190;
 }

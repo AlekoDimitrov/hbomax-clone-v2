@@ -12,7 +12,7 @@ const ChooseWatch = () => {
         fontSize={"25px"}
         fontWeight={"bold"}
         fontFamily={"sans-serif"}
-        cursor={"pointer"}
+        cursor={"default"}
         color={"#fff"}
         pt={"80px"}
       >
@@ -23,7 +23,7 @@ const ChooseWatch = () => {
         fontSize={"25px"}
         fontWeight={"bold"}
         fontFamily={"sans-serif"}
-        cursor={"pointer"}
+        cursor={"default"}
         color={"#fff"}
         mt={"80px"}
       >

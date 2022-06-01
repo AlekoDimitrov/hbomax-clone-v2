@@ -20,11 +20,12 @@ const MovieSlider = (props) => {
     setWidth(-slider.current.scrollWidth + containerSlider.current.offsetWidth);
   });
   const [arrowBackground, setArrowBackground] = useState("rgba(36,36,36, 0)");
+  const [arrowSlide, setArrowSlide] = useState(0);
 
   return (
     <div
       onMouseEnter={() => setArrowBackground("rgba(36,36,36, 0.6)")}
-      onMouseOut={() => setArrowBackground("rgba(36,36,36, 0.0)")}
+      onMouseLeave={() => setArrowBackground("rgba(36,36,36, 0.0)")}
       className="mainContainer"
     >
       <Flex
@@ -41,6 +42,15 @@ const MovieSlider = (props) => {
           className="navArrowsContainer"
           initial={{ backgroundColor: "rgba(36,36,36, 0)" }}
           animate={{ backgroundColor: arrowBackground }}
+          onClick={() => {
+            arrowSlide < 0 &&
+              setArrowSlide(
+                arrowSlide +
+                  containerSlider.current.clientWidth /
+                    (slider.current.scrollWidth /
+                      containerSlider.current.clientWidth)
+              );
+          }}
         >
           <Text fontSize={"3xl"} color={"white"}>
             <MdOutlineArrowBackIos />
@@ -50,6 +60,15 @@ const MovieSlider = (props) => {
           className="navArrowsContainer"
           initial={{ backgroundColor: "rgba(36,36,36, 0)" }}
           animate={{ backgroundColor: arrowBackground }}
+          onClick={() => {
+            arrowSlide > width &&
+              setArrowSlide(
+                arrowSlide -
+                  containerSlider.current.clientWidth /
+                    (slider.current.scrollWidth /
+                      containerSlider.current.clientWidth)
+              );
+          }}
         >
           <Text fontSize={"3xl"} color={"white"}>
             <MdOutlineArrowForwardIos />
@@ -64,28 +83,30 @@ const MovieSlider = (props) => {
           left: width,
         }}
         dragElastic={0.2}
+        animate={{ x: arrowSlide }}
       >
-        <Flex w={"fit-content"} ref={slider}>
+        <Flex w={"fit-content"} ref={slider} cursor={"grab"}>
           {movies.length > 0 &&
             movies.map((movie, key) => {
               return (
-                <Box>
-                  <SquareCard
-                    titles={props.titles}
-                    key={key}
-                    title={movie.name ? movie.name : movie.title}
-                    img={
-                      props.img === "backdrop_path"
-                        ? movie.backdrop_path
-                        : movie.poster_path
-                    }
-                    width={props.width}
-                  />
-                </Box>
+                <SquareCard
+                  titles={props.titles}
+                  key={key}
+                  title={movie.name ? movie.name : movie.title}
+                  img={
+                    props.img === "backdrop_path"
+                      ? movie.backdrop_path
+                      : movie.poster_path
+                  }
+                  width={props.width}
+                />
               );
             })}
         </Flex>
       </motion.div>
+      {/* {console.log(
+        slider.current.scrollWidth / containerSlider.current.offsetWidth
+      )} */}
     </div>
   );
 };
