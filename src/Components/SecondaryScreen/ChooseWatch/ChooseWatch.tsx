@@ -16,9 +16,11 @@ const ChooseWatch = () => {
         color={"#fff"}
         pt={"80px"}
       >
-        For You
+        Popular Movies
       </Text>
-      <MovieSlider />
+      <MovieSlider
+        customUrl={"/discover/movie?sort_by=popularity.desc&api_key="}
+      />
       <Text
         fontSize={"25px"}
         fontWeight={"bold"}
@@ -27,9 +29,11 @@ const ChooseWatch = () => {
         color={"#fff"}
         mt={"80px"}
       >
-        Just Added
+        Popular Series
       </Text>
-      <MovieSlider />
+      <MovieSlider
+        customUrl={"/discover/tv?sort_by=popularity.desc&api_key="}
+      />
     </Box>
   );
 };
