@@ -4,19 +4,24 @@ import { Box, Flex, HStack, Text } from "@chakra-ui/react";
 import { BiPlay } from "react-icons/bi";
 import { RiArrowRightSLine } from "react-icons/ri";
 import NavigationButtons from "../../../shared/NavigationButtons/NavigationButtons";
-import SquareCard from "../SquareCard/SquareCard";
-import { MoviesContext } from "../../../Helper/Context";
-import useMovieFetch from "../../../API/useMovieFetch";
-import { motion } from "framer-motion";
 import MovieSlider from "../MovieSlider/MovieSlider";
+import useMovieFetch from "../../../API/useMovieFetch";
 
 const Hero = () => {
+  const movies = useMovieFetch(
+    "/discover/movie?sort_by=popularity.desc&api_key="
+  );
+  let randomMovie = movies[Math.floor(Math.random() * 20)];
   return (
     <Box
       className="innerShadow"
       h={"fit-content"}
       backgroundColor={"#000000"}
-      backgroundImage="https://images3.alphacoders.com/106/thumb-1920-1064725.jpg"
+      backgroundImage={
+        randomMovie &&
+        `https://image.tmdb.org/t/p/original${randomMovie.backdrop_path}`
+      }
+      backgroundSize={"cover"}
     >
       <Flex color={"#ffff"} align={"flex-end"} ml={"50px"} pt={"400px"}>
         <Flex flexDir={"column"} h={"34%"} justify={"space-between"}>
@@ -30,8 +35,20 @@ const Hero = () => {
             <Text fontSize={"1xl"} fontWeight={"bold"} mt={"10px"}>
               MOVIE PREMIERE
             </Text>
-            <Text fontSize={"1xl"}>
-              He's left the service. But danger has a way of following him.
+            <Text
+              fontSize={"1xl"}
+              maxW={"500px"}
+              wordBreak={"break-word"}
+              pr={"50px"}
+            >
+              {randomMovie &&
+                randomMovie.overview
+                  .split(" ")
+                  .slice(0, 20)
+                  .map((word) => {
+                    return word + " ";
+                  })}
+              ...
             </Text>
           </Box>
           <HStack spacing={"15px"} mt={"40px"} align={"center"}>
@@ -62,7 +79,12 @@ const Hero = () => {
               </Text>
               <RiArrowRightSLine color="#a6a6a6" />
             </Flex>
-            <MovieSlider titles={true} img={"backdrop_path"} width={"350px"} />
+            <MovieSlider
+              titles={true}
+              img={"backdrop_path"}
+              width={"350px"}
+              customUrl={"/discover/tv?sort_by=popularity.desc&api_key="}
+            />
           </Box>
         </Flex>
       </Flex>
