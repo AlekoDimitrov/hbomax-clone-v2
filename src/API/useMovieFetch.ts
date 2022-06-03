@@ -11,7 +11,6 @@ const useMovieFetch = (custom_url) => {
     api_url: "",
   };
   API_DETAILS.api_url = API_DETAILS.base_url + custom_url + API_DETAILS.api_key;
-  console.log(custom_url);
 
   useEffect(() => {
     fetch(API_DETAILS.api_url)
