@@ -1,14 +1,13 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   MdOutlineArrowBackIos,
   MdOutlineArrowForwardIos,
 } from "react-icons/md";
-import { Box, Flex, HStack, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import useMovieFetch from "../../../API/useMovieFetch";
 import SquareCard from "../SquareCard/SquareCard";
 import "./MovieSlider.css";
-import { MoviesContext } from "../../../Helper/Context";
 
 const MovieSlider = (props) => {
   const movies = useMovieFetch(
@@ -24,6 +23,8 @@ const MovieSlider = (props) => {
   });
   const [arrowBackground, setArrowBackground] = useState("rgba(36,36,36, 0)");
   const [arrowSlide, setArrowSlide] = useState(0);
+  const [displayLeft, setDisplayLeft] = useState("none");
+  const [displayRight, setDisplayRight] = useState("");
 
   return (
     <div
@@ -41,32 +42,58 @@ const MovieSlider = (props) => {
         w={"100%"}
         pr={"65px"}
       >
-        <motion.div
-          className="navArrowsContainer"
-          initial={{ backgroundColor: "rgba(36,36,36, 0)" }}
-          animate={{ backgroundColor: arrowBackground }}
-          onClick={() => {
-            arrowSlide < 0 &&
-              setArrowSlide(arrowSlide + containerSlider.current.offsetWidth);
-          }}
-        >
-          <Text fontSize={"3xl"} color={"white"}>
-            <MdOutlineArrowBackIos />
-          </Text>
-        </motion.div>
-        <motion.div
-          className="navArrowsContainer"
-          initial={{ backgroundColor: "rgba(36,36,36, 0)" }}
-          animate={{ backgroundColor: arrowBackground }}
-          onClick={() => {
-            arrowSlide > width &&
-              setArrowSlide(arrowSlide - containerSlider.current.offsetWidth);
-          }}
-        >
-          <Text fontSize={"3xl"} color={"white"}>
-            <MdOutlineArrowForwardIos />
-          </Text>
-        </motion.div>
+        <Box h={"100%"}>
+          <Box h={"100%"} display={displayLeft}>
+            <motion.div
+              className="navArrowsContainer"
+              initial={{ backgroundColor: "rgba(36,36,36, 0)" }}
+              animate={{ backgroundColor: arrowBackground }}
+              onClick={() => {
+                if (arrowSlide < 0) {
+                  setArrowSlide(
+                    arrowSlide + containerSlider.current.offsetWidth
+                  );
+                }
+                if (arrowSlide < 0 - containerSlider.current.offsetWidth) {
+                  setDisplayLeft("");
+                  setDisplayRight("");
+                } else {
+                  setDisplayLeft("none");
+                }
+              }}
+            >
+              <Text fontSize={"3xl"} color={"white"}>
+                <MdOutlineArrowBackIos />
+              </Text>
+            </motion.div>
+          </Box>
+        </Box>
+        <Box h={"100%"}>
+          <Box h={"100%"} display={displayRight}>
+            <motion.div
+              className="navArrowsContainer"
+              initial={{ backgroundColor: "rgba(36,36,36, 0)" }}
+              animate={{ backgroundColor: arrowBackground }}
+              onClick={() => {
+                if (arrowSlide > width) {
+                  setArrowSlide(
+                    arrowSlide - containerSlider.current.offsetWidth
+                  );
+                }
+                if (arrowSlide > width + containerSlider.current.offsetWidth) {
+                  setDisplayLeft("");
+                  setDisplayRight("");
+                } else {
+                  setDisplayRight("none");
+                }
+              }}
+            >
+              <Text fontSize={"3xl"} color={"white"}>
+                <MdOutlineArrowForwardIos />
+              </Text>
+            </motion.div>
+          </Box>
+        </Box>
       </Flex>
       <motion.div
         ref={containerSlider}
@@ -97,9 +124,6 @@ const MovieSlider = (props) => {
             })}
         </Flex>
       </motion.div>
-      {/* {console.log(
-        slider.current.scrollWidth / containerSlider.current.offsetWidth
-      )} */}
     </div>
   );
 };
