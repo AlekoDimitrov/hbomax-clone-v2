@@ -29,7 +29,10 @@ const Register = () => {
           Your First User
         </Text>
 
-        <Flex w={"50%"} justify={"space-between"}>
+        <Flex
+          w={["100%", "100%", "100%", "80%", "50%"]}
+          justify={"space-between"}
+        >
           <Flex flexDir={"column"} align={"center"}>
             <BigAvatar icon={<BsPerson />} />
             <Flex

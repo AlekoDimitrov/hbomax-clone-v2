@@ -10,7 +10,7 @@ import { ActiveUserContext } from "../../../Helper/Context";
 import { Link as RouterLink } from "react-router-dom";
 
 const Navbar = () => {
-  const [navBackground, setNavBackground] = useState("rgba(0, 0, 0, 0.8)");
+  const [navBackground, setNavBackground] = useState("rgba(0, 0, 0, 0.0)");
   const { activeUser }: any = useContext(ActiveUserContext);
 
   const listenToScroll = () => {
@@ -46,8 +46,8 @@ const Navbar = () => {
         pr="60px"
       >
         <Flex w={"80px"} justify={"space-between"} fontSize={"20px"}>
-          <RiMenu2Fill />
-          <BsSearch />
+          <RiMenu2Fill cursor={"pointer"} />
+          <BsSearch cursor={"pointer"} />
         </Flex>
         <HBOSvgLogo className="colorWhite" />
         <RouterLink to={"/who-is-watching"}>
